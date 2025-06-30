@@ -182,7 +182,7 @@ const Footer: React.FC = () => {
             </div>
             
             <div className="flex items-center text-gray-400 text-sm">
-              <span>Made with</span>
+              <span>Made by Jibbran Ali with</span>
               <Heart className="mx-2 text-red-500" size={16} />
               <span>for the Kubernetes community</span>
             </div>
