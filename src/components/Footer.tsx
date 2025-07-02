@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden">
+    <footer className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden px-2 py-4 text-xs md:px-8 md:py-8 md:text-base">
       {/* Kubernetes-themed background watermark */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 left-10 w-32 h-32 border-2 border-k8s-blue rounded-lg transform rotate-12"></div>
@@ -71,12 +71,10 @@ const Footer: React.FC = () => {
             className="lg:col-span-2"
           >
             <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-k8s-blue rounded-lg flex items-center justify-center mr-4">
-                <span className="text-white font-bold text-xl">K8</span>
-              </div>
+              <img src="/linuxworld-logo.png" alt="Linux World Logo" className="h-10 max-w-xs object-contain mr-4" />
               <div>
                 <h3 className="text-2xl font-bold">Kubernetes Bootcamp</h3>
-                <p className="text-blue-200">by LWIndia</p>
+                <p className="text-blue-200">by Linux World Informatics Private Ltd</p>
               </div>
             </div>
             
@@ -176,14 +174,20 @@ const Footer: React.FC = () => {
           viewport={{ once: true }}
           className="border-t border-gray-700 mt-12 pt-8"
         >
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © {currentYear} LWIndia. All rights reserved.
+          <div className="flex flex-col items-center text-center gap-1 md:flex-row md:items-center md:text-left md:gap-2 w-full justify-center flex-wrap break-words">
+            <div className="text-gray-400 text-sm mb-2 md:mb-0 break-words">
+              © {currentYear} Linux World Informatics Private Ltd. All rights reserved.
             </div>
-            
-            <div className="flex items-center text-gray-400 text-sm">
-              <span>Made by Jibbran Ali with</span>
-              <Heart className="mx-2 text-red-500" size={16} />
+            <div className="text-gray-400 text-sm flex flex-row items-center gap-1 break-words flex-nowrap whitespace-nowrap md:flex-wrap md:whitespace-normal">
+              <span>Made by </span>
+              <span
+                onClick={() => window.open('https://www.linkedin.com/in/jibbran-ali/', '_blank')}
+                style={{ color: 'inherit', textDecoration: 'none', cursor: 'default', fontWeight: 500 }}
+              >
+                Jibbran Ali
+              </span>
+              <span> with</span>
+              <Heart className="mx-1 text-red-500" size={16} />
               <span>for the Kubernetes community</span>
             </div>
           </div>

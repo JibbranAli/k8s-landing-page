@@ -110,14 +110,14 @@ function K8sTerminalBody() {
         timeout = setTimeout(() => {
           setTyped((prev) => prev + terminalLinesData[index][charIndex]);
           setCharIndex((c) => c + 1);
-        }, 50);
+        }, 45);
       } else {
         timeout = setTimeout(() => {
           setLines((prev) => [...prev, typed]);
           setTyped("");
           setCharIndex(0);
           setIndex((i) => i + 1);
-        }, 400);
+        }, 350);
       }
     } else {
       timeout = setTimeout(() => {
@@ -130,14 +130,50 @@ function K8sTerminalBody() {
     return () => clearTimeout(timeout);
   }, [index, charIndex, typed]);
 
+  // Helper to animate each character
+  const renderTyped = () => {
+    return (
+      <span style={{ display: 'inline-block' }}>
+        {typed.split("").map((char, i) => (
+          <motion.span
+            key={i}
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.18, delay: i * 0.03 }}
+            style={{ display: 'inline-block' }}
+          >
+            {char}
+          </motion.span>
+        ))}
+      </span>
+    );
+  };
+
   return (
     <div className="terminal-body" style={{ background: '#0f172a', padding: 20, flexGrow: 1, fontSize: 14, color: '#fff', overflowY: 'auto', whiteSpace: 'pre-wrap', lineHeight: 1.4 }}>
       <div id="terminal-lines">
         {lines.map((line, i) => (
-          <div key={i}><code>{line}</code></div>
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3, delay: i * 0.1 }}
+          >
+            <code>{line}</code>
+          </motion.div>
         ))}
       </div>
-      <div><code>{typed}</code><span className="cursor" style={{ display: 'inline-block', marginLeft: 2, color: '#fff', animation: 'blink 1s step-start infinite' }}>█</span></div>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <code>{renderTyped()}</code>
+        <motion.span
+          className="cursor"
+          style={{ display: 'inline-block', marginLeft: 2, color: '#fff' }}
+          animate={{ opacity: [1, 0, 1] }}
+          transition={{ repeat: Infinity, duration: 1 }}
+        >
+          █
+        </motion.span>
+      </div>
       <style>{`@keyframes blink { 50% { opacity: 0; } } .cursor { animation: blink 1s step-start infinite; }`}</style>
     </div>
   );

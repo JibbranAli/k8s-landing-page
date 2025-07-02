@@ -79,7 +79,7 @@ const TrainerProfile: React.FC = () => {
 
                 <div className="space-y-3 mb-6">
                   <p className="text-blue-100">
-                    With over 15 years of experience in DevOps and cloud technologies, Vimal has trained thousands of professionals in Kubernetes, Docker, and modern deployment practices.
+                    With over 23+ years of experience in DevOps and cloud technologies, Vimal has trained thousands of professionals in Kubernetes, Docker, and modern deployment practices.
                   </p>
                   <p className="text-blue-100">
                     He specializes in helping organizations transition to containerized architectures and implement robust CI/CD pipelines using Kubernetes.
@@ -145,6 +145,7 @@ const TrainerProfile: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white text-k8s-blue font-semibold px-6 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+                onClick={() => window.location.href = 'https://rzp.io/rzp/iVAwPNX'}
               >
                 Enroll Now
               </motion.button>

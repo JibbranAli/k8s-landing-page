@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check, Star, Clock, Users, ArrowRight } from 'lucide-react';
+import { Check, Star, Clock, Users, ArrowRight, Calendar } from 'lucide-react';
 
 const Pricing: React.FC = () => {
   const day1Features = [
@@ -21,9 +21,7 @@ const Pricing: React.FC = () => {
     "Certificate of completion",
     "1-year access to all recordings",
     "Private Discord community",
-    "Resume and interview guidance",
-    "Job placement assistance",
-    "Money-back guarantee"
+    "Resume and interview guidance"
   ];
 
   return (
@@ -63,6 +61,17 @@ const Pricing: React.FC = () => {
                 <h4 className="font-semibold text-gray-900 mb-2">Foundational Kubernetes</h4>
                 <p className="text-gray-600 text-sm">Perfect for beginners starting their K8s journey</p>
               </div>
+              {/* Date and Time Row */}
+              <div className="bg-blue-50 rounded-lg p-4 mb-6 flex flex-col gap-1 items-center">
+                <div className="flex items-center font-semibold text-gray-900 mb-1 text-base justify-center">
+                  <Calendar className="mr-2 text-k8s-blue" size={18} />
+                  Saturday, 5th July 2025
+                </div>
+                <div className="flex items-center text-gray-700 text-sm justify-center">
+                  <Clock className="mr-2 text-k8s-blue" size={16} />
+                  12:00 PM – 8:00 PM
+                </div>
+              </div>
             </div>
 
             <ul className="space-y-3 mb-8">
@@ -73,15 +82,9 @@ const Pricing: React.FC = () => {
                 </li>
               ))}
             </ul>
-
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full bg-k8s-blue hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center"
-            >
-              Register for Day 1
-              <ArrowRight className="ml-2" size={20} />
-            </motion.button>
+            <button className="w-full mt-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg text-base flex items-center justify-center transition-colors duration-200">
+              Register for Day 1 <ArrowRight className="ml-2" size={18} />
+            </button>
           </motion.div>
 
           {/* Full Bootcamp Card */}
@@ -128,15 +131,9 @@ const Pricing: React.FC = () => {
                   </li>
                 ))}
               </ul>
-
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full bg-white text-k8s-blue font-semibold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors duration-200 flex items-center justify-center"
-              >
-                Register for Full Bootcamp
-                <ArrowRight className="ml-2" size={20} />
-              </motion.button>
+              <button className="w-full mt-2 bg-white text-k8s-blue font-semibold py-3 rounded-lg text-base flex items-center justify-center transition-colors duration-200 hover:bg-blue-50">
+                Register for Full Bootcamp <ArrowRight className="ml-2" size={18} />
+              </button>
             </div>
           </motion.div>
         </div>

@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         {/* Logo/Brand */}
         <a href="#hero" className="flex items-center gap-2 text-white font-bold text-xl tracking-tight">
-          <span className="bg-k8s-blue w-8 h-8 rounded-lg flex items-center justify-center mr-2">K8</span>
+          <img src="/linuxworld-logo.png" alt="Linux World Logo" className="h-10 w-auto mr-2" />
           <span className="hidden sm:inline">Kubernetes Bootcamp</span>
         </a>
 

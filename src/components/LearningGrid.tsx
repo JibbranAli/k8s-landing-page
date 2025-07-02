@@ -65,7 +65,7 @@ const LearningGrid: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -97,11 +97,9 @@ const LearningGrid: React.FC = () => {
                 <div className={`inline-flex p-3 rounded-lg bg-gradient-to-r ${topic.color} text-white mb-4 group-hover:scale-110 transition-transform duration-300`}>
                   <topic.icon size={24} />
                 </div>
-                
                 <h3 className="text-lg font-semibold text-gray-900 mb-3 group-hover:text-k8s-blue transition-colors duration-300">
                   {topic.title}
                 </h3>
-                
                 <p className="text-gray-600 text-sm leading-relaxed">
                   {topic.description}
                 </p>

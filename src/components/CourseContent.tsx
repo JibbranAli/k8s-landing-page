@@ -9,7 +9,6 @@ const CourseContent: React.FC = () => {
   const day1Modules = [
     {
       title: "Kubernetes Introduction & Architecture",
-      duration: "2 hours",
       topics: [
         "What is Kubernetes?",
         "Why Kubernetes in DevOps and Industry",
@@ -18,136 +17,120 @@ const CourseContent: React.FC = () => {
       ]
     },
     {
-      title: "Kubernetes Setup",
-      duration: "1.5 hours",
+      title: "Kubernetes Installation & Cluster Setup",
       topics: [
-        "Using Minikube, Kind, or K3s",
-        "Introduction to EKS/GKE/AKS",
-        "Working with kubeconfig and kubectl",
-        "Understanding Namespaces and Contexts"
+        "Minikube, KIND, or kubeadm basics",
+        "Installing Kubernetes CLI tools (kubectl, kubeadm)",
+        "Starting your first single-node cluster",
+        "Basic troubleshooting tips"
       ]
     },
     {
-      title: "Pods, ReplicaSets, Deployments",
-      duration: "2 hours",
+      title: "Pods – The Basic Execution Unit",
       topics: [
-        "Pod lifecycle and behaviors",
-        "ReplicaSet vs ReplicationController",
-        "Deployments: rolling updates, rollbacks",
-        "Labels, selectors, annotations",
-        "Writing and applying YAML manifests"
+        "What is a Pod?",
+        "Running single & multi-container Pods",
+        "Pod lifecycle and restart policies",
+        "YAML file structure for Pods"
       ]
     },
     {
-      title: "Services and Networking",
-      duration: "2 hours",
+      title: "Deployments & ReplicaSets",
       topics: [
-        "Understanding ClusterIP, NodePort, LoadBalancer",
-        "DNS and Service Discovery",
-        "Ingress Controller and ingress routing",
-        "TLS and HTTPS with ingress"
+        "Understanding Deployments",
+        "Scaling using ReplicaSets",
+        "Declarative Management using YAML",
+        "Rolling updates concept"
       ]
     },
     {
-      title: "Configuration Management",
-      duration: "1.5 hours",
+      title: "Services & Networking Basics",
       topics: [
-        "ConfigMaps vs Secrets",
-        "Injecting environment variables",
-        "Mounting secrets and configs",
-        "Security best practices for secrets"
+        "ClusterIP, NodePort, LoadBalancer – Differences",
+        "Exposing applications via Services",
+        "DNS-based service discovery",
+        "Internal vs external access"
       ]
     },
     {
-      title: "Persistent Storage",
-      duration: "2 hours",
+      title: "Namespaces, Labels & Selectors",
       topics: [
-        "Kubernetes Volumes: emptyDir, hostPath",
-        "PersistentVolume and PersistentVolumeClaim",
-        "StorageClass and dynamic provisioning",
-        "Hands-on deployment with MySQL and WordPress"
+        "Organizing resources using Namespaces",
+        "Label-based grouping and selection",
+        "Using Selectors in Services and Deployments",
+        "Namespace scoping for multi-team setups"
       ]
     },
     {
-      title: "Real-World Use Case Deployment",
-      duration: "1 hour",
+      title: "Mini Project: Static Web App Deployment",
       topics: [
-        "Deploy a multi-tier app using K8s",
-        "Use Ingress, Volumes, and ConfigMaps",
-        "Troubleshooting and monitoring basics"
+        "Deploy an Nginx container",
+        "Expose using NodePort Service",
+        "Scale and verify availability",
+        "Use kubectl to inspect Pod, Service, and Deployment"
       ]
     }
   ];
 
   const day2Modules = [
     {
-      title: "Advanced Workloads",
-      duration: "2 hours",
+      title: "ConfigMaps & Secrets",
       topics: [
-        "Using StatefulSets and DaemonSets",
-        "Working with Init containers and Sidecars",
-        "Jobs and CronJobs for background and scheduled tasks"
+        "Externalizing configurations",
+        "Creating and mounting ConfigMaps",
+        "Securing credentials with Secrets"
       ]
     },
     {
-      title: "Security and Policies",
-      duration: "2 hours",
+      title: "Persistent Storage: Volumes, PV, PVC",
       topics: [
-        "RBAC: ClusterRoles, Roles, ServiceAccounts",
-        "Pod Security Standards (PSS)",
-        "Network Policies with Calico",
-        "Image security using Trivy",
-        "Security audit tools: Kube-bench, Kubescape"
+        "Kubernetes Volumes vs Docker volumes",
+        "PersistentVolume and PersistentVolumeClaim",
+        "Mounting storage into Pods"
       ]
     },
     {
-      title: "Helm – The Package Manager for Kubernetes",
-      duration: "2 hours",
+      title: "Health Probes – Liveness & Readiness",
       topics: [
-        "What is Helm and why use it",
-        "Helm chart structure and templating",
-        "Installing apps using Helm (e.g., Prometheus)",
-        "Creating a basic Helm chart and managing versions"
+        "Liveness vs Readiness probes",
+        "Implementing probes via YAML",
+        "Simulating container failures",
+        "Observing behavior in Deployments"
       ]
     },
     {
-      title: "CI/CD with Kubernetes",
-      duration: "2 hours",
+      title: "Rolling Updates & Rollbacks",
       topics: [
-        "Building pipelines using GitHub Actions",
-        "Automating Docker build, push, and deployment",
-        "Handling imagePullSecrets",
-        "Implementing canary deployments using rollout strategies"
+        "Updating Deployments with zero downtime",
+        "Manual & automated rollouts",
+        "Rollback mechanism and use-case",
+        "Update strategy configuration"
       ]
     },
     {
-      title: "Monitoring, Logging, and Observability",
-      duration: "2 hours",
+      title: "Resource Limits & Quotas",
       topics: [
-        "Setting up Prometheus and Grafana",
-        "Creating dashboards and alerts",
-        "Logging with Loki or ELK stack",
-        "Distributed tracing with OpenTelemetry"
+        "Setting CPU and memory requests/limits",
+        "Importance in production environments",
+        "Namespace-based ResourceQuotas"
       ]
     },
     {
-      title: "Auto-Scaling and Optimization",
-      duration: "1.5 hours",
+      title: "Helm – Kubernetes Package Manager",
       topics: [
-        "Horizontal Pod Autoscaler (HPA)",
-        "Vertical Pod Autoscaler (VPA)",
-        "Cluster Autoscaler (conceptual overview)",
-        "Resource requests, limits, and tuning"
+        "What is Helm and why use it?",
+        "Charts, Repositories, and Values",
+        "Installing applications using Helm"
       ]
     },
     {
-      title: "Production Patterns & Wrap-Up",
-      duration: "1.5 hours",
+      title: "Mini Project: WordPress + MySQL Deployment",
       topics: [
-        "Production-ready cluster layouts",
-        "CI/CD best practices",
-        "Disaster recovery and backups",
-        "Final Q&A and interview prep tips"
+        "Deploy a WordPress frontend and MySQL backend",
+        "Use Persistent Volumes for MySQL storage",
+        "Configure with Secrets and ConfigMaps",
+        "Expose WordPress using NodePort or LoadBalancer",
+        "Test Multi-tier application functionality"
       ]
     }
   ];

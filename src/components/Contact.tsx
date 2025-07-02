@@ -35,20 +35,29 @@ const Contact: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      // Simulate email sending (replace with actual email service)
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Here you would typically send the email to technical@lwindia.com
-      // For now, we'll simulate a successful submission
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.fullName,
+          email: formData.email,
+          message: `WhatsApp: ${formData.whatsapp}\n${formData.message}`,
+        }),
+      });
+
+      if (response.ok) {
       setSubmitStatus('success');
-      
-      // Reset form
       setFormData({
         fullName: '',
         email: '',
         whatsapp: '',
         message: ''
       });
+      } else {
+        setSubmitStatus('error');
+      }
     } catch (error) {
       setSubmitStatus('error');
     } finally {
